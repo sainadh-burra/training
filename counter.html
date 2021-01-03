@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></head>
+    <style type="text/css">
+      center{
+        margin-top: 35vh;
+      }
+      .counter{
+        background: rgba(0, 0, 0, 0.3); 
+      }
+      .count{
+        font-size: 130px;
+        color: white;
+      }
+      td{
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+      #secs{
+        color: pink;
+      }
+      p{
+        font-size: 30px;
+        text-align: center;
+      }
+
+    </style>
+  <body>
+
+    <center>
+      <table class="counter">
+        <tr class="count">
+          <td id="days"></td>
+          <td id="hrs"></td>
+          <td id="mins"></td>
+          <td id="secs"></td>
+        </tr><!-- 
+        <tr>
+          <td class="days">DAYS</td>
+          <td class="hrs">HOURS</td>
+          <td class="mins">MINUTES</td>
+          <td class="secs">SECONDS</td>
+        </tr> -->
+      </table>
+    </center>
+
+    <script>
+    var countDownDate = new Date("october 28, 2021 23:59:59").getTime();
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (hours < 10){
+        hours = "0" +hours ;
+      }
+      if (minutes < 10){
+        minutes = "0" +minutes ;
+      }
+      if (seconds < 10){
+        seconds = "0" +seconds ;
+      }
+      document.getElementById("days").innerHTML = days +"<br><p>DAYS</p>";
+      document.getElementById("hrs").innerHTML = hours +"<br><p>HOURS</p>";
+      document.getElementById("mins").innerHTML = minutes +"<br><p>MINUTES</p>";
+      document.getElementById("secs").innerHTML = seconds +"<br><p>SECONDS</p>";
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementsByClassName("counter")[0].innerHTML = "EXPIRED";
+      }
+    }, 1000);
+    </script>
+
+  </body>
+</html>
+

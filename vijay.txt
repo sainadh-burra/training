@@ -1,0 +1,2 @@
+hi krify
+ git pull origin main --allow-unrelated-histories
